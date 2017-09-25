@@ -1,37 +1,75 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" ng-app="conversorDeCoordenadasGeo">
   <head>
     <title>Conversor Coordenadas Geo para UTM</title>
-    <script src="js/functions.js"></script>
     <meta charset="utf-8">
+    <script src="lib/angularjs/js/angular.min.js"></script>
+    <script src="lib/js/controllers/conversor-geo-controller.js"></script>
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.min.css" />
   </head>
   <body>
-    <form id="formulario" onsubmit="converter()">
-        Longitude:
-        <br>
-        Graus:<br>
-        <input id="longGraus" type="number" step="0.01" name="graus"><br><br>
-        Minutos:<br>
-        <input id="longMinutos" type="number" step="0.01" name="minutos"><br><br>
-        Segundos:<br>
-        <input id="longSegundos" type="number" step="0.01" name="segundos"><br><br>
 
-        Latitude:
-        <br>
-        Graus:<br>
-        <input id="latGraus" type="number" step="0.01" name="graus"><br><br>
-        Minutos:<br>
-        <input id="latMinutos" type="number" step="0.01" name="minutos"><br><br>
-        Segundos:<br>
-        <input id="latSegundos" type="number" step="0.01" name="segundos"><br><br>
-        
-        <input type="submit" value="Converter">
-      </form>
-      <br><br>
-      <section>
-          <div id="codigo">
-              <label>Codiguzinhu</label>
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Conversor de Coordenadas Geográficas para UTM</h1>
+      </div>
+    </div>
+
+    <div class="container" ng-controller="conversorGeoController">
+      <div id="formulario" class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+
+            <label><h2>Longitude:</h2></label>
+            <h3>Graus:</h3>
+            <div>
+              <input class="form-control" id="longGraus" type="number" step="0.01" name="graus" ng-model="longitude.grau"><br><br>
+            </div>
+  
+            <h3>Minutos:</h3>
+            <div>
+              <input class="form-control" id="longMinutos" type="number" step="0.01" name="minutos" ng-model="longitude.minutos"><br><br>
+            </div>
+  
+            <h3>Segundos:</h3>
+            <div>
+              <input class="form-control" id="longSegundos" type="number" step="0.01" name="segundos" ng-model="longitude.segundos"><br><br>
+            </div>
+
           </div>
-      </section>
+        </div>
+
+        <div class="col-md-6">
+          <div class="form-group">
+            
+            <label><h2>Latitude:</h2></label>  
+            <h3>Graus:</h3>
+            <div>
+              <input class="form-control" id="latGraus" type="number" step="0.01" name="graus" ng-model="latitude.grau"><br><br>
+            </div>
+
+            <h3>Minutos:</h3>
+            <div>
+              <input class="form-control" id="latMinutos" type="number" step="0.01" name="minutos" ng-model="latitude.minutos"><br><br>
+            </div>
+
+            <h3>Segundos:</h3>
+            <div>
+              <input class="form-control" id="latSegundos" type="number" step="0.01" name="segundos" ng-model="latitude.segundos"><br><br>
+            </div> 
+
+          </div>
+        </div>
+        
+        <input class="btn btn-primary btn-block center" type="submit" value="Converter">          
+      </div>
+    </div>
+    
+    <br><br>
+
+    <div class="container" id="codigo">
+      <label>Codiguzinhu</label>
+    </div>
+
   </body>
 </html>
